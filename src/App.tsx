@@ -1,34 +1,30 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 console.log(1)
 function App() {
   const [count, setCount] = useState({ name: "", pass: '' })
   console.log(count)
-  return (
+
+    return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        {/*<button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>*/}
-        <input type="text" onChange={(e) => setCount((prev)=>({...prev, name: e.target.value }))} />
-        <input type="text" onChange={(e) => setCount((prev)=>({...prev, pass: e.target.value }))} />
-        name {count.name}
-        pass {count.pass}
-        <p>
-          Edi t <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
+
+      <div >
+       
+        <form name="add" className="card">
+          <input className="add" type="text" placeholder="имя" required min="5"  max="5" onChange={(e) => setCount((prev) => ({ ...prev, name: e.target.value }))} />
+          name {count.name}
+
+          <input className="add" type="text" placeholder="пароль" required min="5" max="5" onChange={(e) => setCount((prev) => ({ ...prev, pass: e.target.value }))} />
+          pass {count.pass}
+          <button className='button' type="submit">
+            Отправить
+          </button>
+          <button className='button' type="reset">
+            Очистить
+          </button>
+        </form>
+
+      </div >
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
